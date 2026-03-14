@@ -72,11 +72,43 @@ rh_hist_sal = dados_rh["historico_salario"]
 # print("=== Comparativo de valores entre sistemas (UNION) ===")
 # display(pd.concat([vd_vendas, es_estoque], ignore_index=True))
 
-print("----"*65)
-print("Visualizar problema dos status")
-print("=== Comparativo de valores entre sistemas (UNION) ===")
+# print("----"*65)
+# print("Visualizar problema dos status")
+# print("=== Status ===")
 
-display(vd_vendas.head(3))
-display(es_produtos.head(3))
-display(rh_funcs[["matricula", "nome_completo", "nr_cpf", "data_nascimento", "data_admissao", "status"]].head(5))
+# display(vd_vendas.head(3))
+# display(es_produtos.head(3))
+# display(rh_funcs[["matricula", "nome_completo", "nr_cpf", "data_nascimento", "data_admissao", "status"]].head(5))
+
+# print("----"*65)
+# print("Visualizar problema dos produtos")
+# print("=== Produtos ===")
+
+# print("=== Vendas — colunas de itens_venda ===")
+# print(vd_itens.columns.tolist())
+# display(vd_itens.head(5))
+
+# print("\n=== Estoque — colunas de produtos ===")
+# print(es_produtos.columns.tolist())
+# display(es_produtos.head(5))
+
+# print("----"*65)
+# print("=== Vendedor × Funcionário ===")
+# print("Vendas — id_vendedor:")
+# print(vd_vendas["id_vendedor"].unique())
+
+# print("\nRH — matricula:")
+# print(rh_funcs["matricula"].unique())
+
+# print("----"*65)
+# print("===verificação de cpf===")
+
+# print("=== CPF — formato em Vendas ===")
+# print(vd_vendas["cpf_cliente"].head(5).tolist())
+
+# print("\n=== CPF — formato em RH ===")
+# print(rh_funcs["nr_cpf"].head(5).tolist())
+
+print("=== Estoque negativo ou zerado ===")
+display(es_estoque[es_estoque["quantidade"] <= 0][["id_produto", "sigla_filial", "quantidade", "estoque_minimo"]])
 
